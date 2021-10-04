@@ -1,14 +1,14 @@
 <template>
-  <Header />
+  <Header title='Dice Roller' /> <!-- title is essentially passing in parameters to the component -->
 </template>
 
 <script>
-import Header from  "./components/Header"
+import Header from './components/Header'
 
 export default {
   name: 'App',
   components: {
-    Header,
+    Header
   }
 }
 </script>

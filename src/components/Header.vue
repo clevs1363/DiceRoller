@@ -1,17 +1,30 @@
 <template>
-    <header>
-        <h1>Dice Roller</h1>
-    </header>    
+<header>
+  <h1>{{ title }}</h1>
+  <Button />
+</header>
 </template>
 
 <script>
+import Button from './Button'
+
 export default {
-    name: 'Header'
+  name: 'Header',
+  props: {
+    title: {
+      type: String,
+      default: 'Hello world!'
+    }
+  },
+  /* Can also use a simple array - props: ['title'] */
+  components: {
+    Button
+  }
 }
 </script>
 
 <style scoped> /* scoped means only this component receives this styling */
 header {
-    color: green;
+  color: green;
 }
 </style>
