@@ -1,14 +1,47 @@
 <template>
   <Header title='Dice Roller' /> <!-- title is essentially passing in parameters to the component -->
+  <Rolls :rolls="rolls" /> <!-- Dynamically binds rolls data -->
 </template>
 
 <script>
-import Header from './components/Header'
+import Header from "./components/Header"
+import Rolls from "./components/Rolls.vue"
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    Header
+    Header,
+    Rolls
+  },
+  data() {
+    return {
+      rolls: []
+    }
+  },
+  created() {
+    this.rolls = [
+      {
+        id: 1,
+        roll: "1d20+5",
+        result: "25",
+        crit_fail: false,
+        crit_succ: true
+      },
+      {
+        id: 2,
+        roll: "1d20+5",
+        result: "1",
+        crit_fail: true,
+        crit_succ: false
+      },
+      {
+        id: 3,
+        roll: "1d12",
+        result: "11",
+        crit_fail: false,
+        crit_succ: false
+      }
+    ]
   }
 }
 </script>
