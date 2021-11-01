@@ -1,24 +1,23 @@
 <template>
 <header>
   <h1>{{ title }}</h1>
-  <Button />
 </header>
 </template>
 
 <script>
-import Button from './Button'
+// import Button from "./Button"
 
 export default {
-  name: 'Header',
+  name: "Header",
   props: {
     title: {
       type: String,
-      default: 'Hello world!'
+      default: "Hello world!"
     }
   },
   /* Can also use a simple array - props: ['title'] */
   components: {
-    Button
+    // Button
   }
 }
 </script>

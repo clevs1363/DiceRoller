@@ -1,6 +1,6 @@
 <template>
   <Header title='Dice Roller' /> <!-- title is essentially passing in parameters to the component -->
-  <Rolls :rolls="rolls" /> <!-- Dynamically binds rolls data -->
+  <Rolls @delete-roll="deleteRoll" :rolls="rolls" /> <!-- Dynamically binds rolls data -->
 </template>
 
 <script>
@@ -16,6 +16,13 @@ export default {
   data() {
     return {
       rolls: []
+    }
+  },
+  methods: {
+    deleteRoll(id) {
+      if (confirm("Are you sure?")) {
+        this.rolls = this.rolls.filter((roll) => roll.id !== id)
+      }
     }
   },
   created() {

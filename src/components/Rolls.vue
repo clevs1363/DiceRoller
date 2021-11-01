@@ -1,15 +1,14 @@
 <template>
   <div :key="roll.id" v-for="roll in rolls">
-    <Roll :roll="roll" />
+    <Roll @delete-roll="$emit('delete-roll', roll.id)" :roll="roll" />
   </div>
-  <form>
-    <input type="text" id="roller" name="roller" placeholder="Roll"><br><br>
-    <input type="submit" value="Submit">
-  </form>
+
+  <Button />
 </template>
 
 <script>
 import Roll from "./Roll"
+import Button from "./Button"
 
 export default {
   name: "Rolls",
@@ -17,7 +16,9 @@ export default {
     rolls: Array
   },
   components: {
-    Roll
-  }
+    Roll,
+    Button
+  },
+  emits: ["delete-roll"]
 }
 </script>
