@@ -1,6 +1,6 @@
 <template>
   <div :key="roll.id" v-for="roll in rolls">
-    <Roll :roll="roll" />
+    <Roll @remove-roll="$emit('remove-roll', roll.id)" :roll="roll" />
   </div>
   <form>
     <input type="text" id="roller" name="roller" placeholder="Roll"><br><br>
@@ -18,6 +18,7 @@ export default {
   },
   components: {
     Roll
-  }
+  },
+  emits: ["remove-roll"]
 }
 </script>

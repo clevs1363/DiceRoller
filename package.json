@@ -38,8 +38,17 @@
       "parser": "babel-eslint"
     },
     "rules": {
-      "space-before-function-paren": ["error", "never"],
-      "quotes": [2, "double", { "avoidEscape": true }]
+      "space-before-function-paren": [
+        "error",
+        "never"
+      ],
+      "quotes": [
+        2,
+        "double",
+        {
+          "avoidEscape": true
+        }
+      ]
     }
   },
   "browserslist": [

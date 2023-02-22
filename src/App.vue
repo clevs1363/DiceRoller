@@ -1,11 +1,11 @@
 <template>
   <Header title='Dice Roller' /> <!-- title is essentially passing in parameters to the component -->
-  <Rolls :rolls="rolls" /> <!-- Dynamically binds rolls data -->
+  <Rolls @remove-roll="removeRoll" :rolls="rolls" /> <!-- Dynamically binds rolls data -->
 </template>
 
 <script>
 import Header from "./components/Header"
-import Rolls from "./components/Rolls.vue"
+import Rolls from "./components/Rolls"
 
 export default {
   name: "App",
@@ -16,6 +16,11 @@ export default {
   data() {
     return {
       rolls: []
+    }
+  },
+  methods: {
+    removeRoll(id) {
+      this.rolls = this.rolls.filter((roll) => roll.id !== id)
     }
   },
   created() {
