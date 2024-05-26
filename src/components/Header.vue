@@ -1,7 +1,6 @@
 <template>
 <header>
   <h1>{{ title }}</h1>
-  <Button />
 </header>
 </template>
 
@@ -18,7 +17,7 @@ export default {
   },
   /* Can also use a simple array - props: ['title'] */
   components: {
-    Button
+    // Button
   }
 }
 </script>

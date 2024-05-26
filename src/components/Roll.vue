@@ -1,7 +1,7 @@
 <template>
 <div
   class="roll">
-  <h3>{{ roll.roll }}: </h3>
+  <h3>{{ roll.roll }}: <i @click="onDelete(roll.id)" class="fas fa-times"></i></h3>
   <p :class="{ fail: roll.crit_fail, succ: roll.crit_succ }">{{ roll.result }}</p>
   <span id="delete" @click="removeRoll(roll.id)">X</span>
 </div>
@@ -16,6 +16,11 @@ export default {
   methods: {
     removeRoll(id) {
       this.$emit("remove-roll", id) /* Data is at highest level (App --> Rolls --> Roll) so we need to emit the vent upwards. lowercase-dash is the convention */
+    }
+  },
+  methods: {
+    onDelete(id) {
+      this.$emit("delete-roll", id) // using dash is the convention
     }
   }
 }
@@ -50,4 +55,18 @@ export default {
   cursor: pointer;
 }
 
+.roll {
+  padding: 0px;
+}
+
+.fas {
+  color: red;
+  margin-right: 3px;
+}
+
+.roll h3 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 </style>
